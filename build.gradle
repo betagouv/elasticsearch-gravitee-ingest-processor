@@ -80,11 +80,11 @@ githubRelease {
     targetCommitish "master" // by default this is set to "master"
     releaseName "v0.0.1" // Release title, by default this is the same as the tagName
     body "" // by default this is empty
-    draft false // by default this is false
+    draft true // by default this is false
     prerelease false // by default this is false
-    releaseAssets "$buildDir/distributions" // this points to which files you want to upload as assets with your release
+    releaseAssets "${buildDir}/distributions/$esplugin.name-${version}.zip" // this points to which files you want to upload as assets with your release
 
-    overwrite false // by default false; if set to true, will delete an existing release with the same tag and name
+    overwrite true // by default false; if set to true, will delete an existing release with the same tag and name
     dryRun false // by default false; you can use this to see what actions would be taken without making a release
     apiEndpoint "https://api.github.com" // should only change for github enterprise users
     client // This is the okhttp client used for http requests
