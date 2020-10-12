@@ -50,5 +50,5 @@ bin/elasticsearch-plugin install file:///path/to/ingest-gdpr/build/distribution/
 In order to create a Github release with the built files, you can run
 
 ```bash
-gradle
+gradle clean check githubRelease
 ```
