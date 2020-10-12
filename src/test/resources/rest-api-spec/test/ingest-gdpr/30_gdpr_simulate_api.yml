@@ -1,0 +1,34 @@
+---
+"Test gdpr processor with simulate API":
+  - do:
+      ingest.put_pipeline:
+        id: "my_pipeline"
+        body: >
+          {
+            "description": "_description",
+            "processors": [
+              {
+                "gdpr" : {}
+              }
+            ]
+          }
+  - match: { acknowledged: true }
+
+  - do:
+      ingest.simulate:
+        id: "my_pipeline"
+        body:
+          {
+            docs:
+              [
+                {
+                  _source:
+                    {
+                      uri: "/api-particulier/impots/impots/svair?numeroFiscal=123&referenceAvis=456",
+                    },
+                },
+              ],
+          }
+
+  - length: { docs.0.doc._source: 1 }
+  - match: { docs.0.doc._source.uri: "/api-particulier/impots/impots/svair" }
