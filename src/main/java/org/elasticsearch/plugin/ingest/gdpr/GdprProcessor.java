@@ -30,8 +30,8 @@ public class GdprProcessor extends AbstractProcessor {
     public static final String URIField = "uri";
 
 
-    public GdprProcessor(String tag, String description) throws IOException {
-        super(tag, description);
+    public GdprProcessor(String tag) throws IOException {
+        super(tag);
     }
 
     @Override
@@ -50,9 +50,8 @@ public class GdprProcessor extends AbstractProcessor {
     public static final class Factory implements Processor.Factory {
 
         @Override
-        public GdprProcessor create(Map<String, Processor.Factory> factories, String tag,
-               String description, Map<String, Object> config) throws Exception {
-            return new GdprProcessor(tag, description);
+        public GdprProcessor create(Map<String, Processor.Factory> factories, String tag, Map<String, Object> config) throws Exception {
+            return new GdprProcessor(tag);
         }
     }
 

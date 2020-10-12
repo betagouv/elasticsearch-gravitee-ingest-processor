@@ -34,7 +34,7 @@ public class GdprProcessorTests extends ESTestCase {
         document.put("uri", "/api-particulier/impots/impots/svair?numeroFiscal=123&referenceAvis=456");
         IngestDocument ingestDocument = RandomDocumentPicks.randomIngestDocument(random(), document);
 
-        GdprProcessor processor = new GdprProcessor(randomAlphaOfLength(10), "description");
+        GdprProcessor processor = new GdprProcessor(randomAlphaOfLength(10));
         Map<String, Object> data = processor.execute(ingestDocument).getSourceAndMetadata();
 
         assertThat(data, hasKey("uri"));

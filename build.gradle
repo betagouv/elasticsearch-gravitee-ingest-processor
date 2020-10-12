@@ -9,7 +9,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "org.elasticsearch.gradle:build-tools:7.9.0"
+    classpath "org.elasticsearch.gradle:build-tools:7.8.0"
     classpath "com.github.breadmoirai:github-release:2.2.12"
   }
 }
@@ -19,7 +19,7 @@ repositories {
 }
 
 group = 'org.elasticsearch.plugin.ingest'
-version = '0.0.1'
+version = '0.0.2'
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -47,9 +47,9 @@ esplugin {
 // Note, the two dependencies are not really needed as the buildscript dependency gets them in already
 // they are just here as an example
 dependencies {
-  compile 'org.elasticsearch:elasticsearch:7.9.0'
+  compile 'org.elasticsearch:elasticsearch:7.8.0'
 
-  testCompile 'org.elasticsearch.test:framework:7.9.0'
+  testCompile 'org.elasticsearch.test:framework:7.8.0'
 }
 
 // Set to false to not use elasticsearch checkstyle rules
@@ -76,9 +76,9 @@ githubRelease {
                          // You get this from your user settings > developer settings > Personal Access Tokens
     owner "betagouv" // default is the last part of your group. Eg group: "com.github.breadmoirai" => owner: "breadmoirai"
     repo "elasticsearch-gravitee-ingest-processor" // by default this is set to your project name
-    tagName "v0.0.1" // by default this is set to "v${project.version}"
+    tagName "v0.0.2" // by default this is set to "v${project.version}"
     targetCommitish "master" // by default this is set to "master"
-    releaseName "v0.0.1" // Release title, by default this is the same as the tagName
+    releaseName "v0.0.2" // Release title, by default this is the same as the tagName
     body "" // by default this is empty
     draft true // by default this is false
     prerelease false // by default this is false
